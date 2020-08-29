@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- Instascan -->
+    <script type="text/javascript" src="/shared/instascan.min.js"></script>
+
+    <!-- Estilos CSS -->
+
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/scan.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
+
+
+    <title>Scan</title>
+</head>
+
+<body>
+
+    
+
+    <div class="vid-border fixed-top fixed-left">
+        <video id="preview"></video>
+    </div>
+
+    <div class="cuadrado" style="display: none;"></div>
+
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+        <p class="text-loader">Museo Lilí</p>
+    </div>
+
+    <audio id="audioGuardar">
+        <source src="/assets/sounds/collect.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="audioPiezaMaletaCorrecta">
+        <source src="/assets/sounds/bonus.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="audioPiezaMaletaIncorrecta">
+        <source src="/assets/sounds/wrong.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Modal fullscreen -->
+    <div class="modal modal-fullscreen" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialogV">
+            <div class="modal-contentV">
+                <div class="modal-bodyV" id="videoOnModal">
+                    <div id="contenido">
+                        <!-- <video autoplay id="videoQR"><source src="assets/vid/train.mp4" type="video/mp4"></video> -->
+                    </div>
+                    <button type="button" class="btn btn-primary close" id="saltar" data-dismiss="modal" onclick="salirVideo('videoIsabel')">Saltar Video</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!--Modal: modalConfirmarPieza-->
+    <div class="modal fade" id="modalConfirmarPieza" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <!--Content-->
+            <div class="modal-content text-center">
+                
+                <!--Body-->
+                <div class="modal-body">
+                    <h2 class="title-modal" id="nombrePieza"></h2>
+                    <p class="parrafo-modal">¿Deseas agregarla a tu maleta de explorador virtual?</p>
+                </div>
+    
+                <!--Footer-->
+                <div class="modal-footer">
+                    <div class="row w-100">
+                        <div class="col-6">
+                            <div class="text-center">
+                                <button class="btn btn-modal" id="guardar">Sí</button>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center">
+                                <button type="button" class="btn  btn-modal" data-dismiss="modal">No</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!--Modal: modalConfirmarPieza-->
+
+
+    <!--Modal: modalPiezaConfirmada-->
+    <div class="modal fade" id="modalPiezaConfirmada" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <!--Content-->
+            <div class="modal-content text-center">
+
+                <!--Body-->
+                <div class="modal-body">
+                    <p class="parrafo-modal" id="mensajeConfirmacion">¡Agregaste la pieza a tu maleta de explorador virtual!</p>
+                </div>
+    
+                <!--Footer-->
+                <div class="modal-footerL">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="text-center">
+                                <button type="button" class="btn btn-listo btn-modal " id="actualizarMaleta" data-dismiss="modal">Listo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!--Modal: modalPiezaConfirmada-->
+
+    <!-- Navbar Maleta -->
+    
+    <div class="contenido fixed-bottom text-center pt-1" id="maletaVirtual">
+        <!-- <button id="maleta">Hola</button> -->  
+    </div>
+
+    <!-- Modal Video Sabio Agradecido -->
+    <div class="modal modal-fullscreen" id="videoModalSabio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialogV">
+            <div class="modal-contentV">
+                <div class="modal-bodyV" id="videoOnModalSabio">
+                    <div id="contenido">
+                        <video id="videoSabio"><source src="assets/vid/sabio.mp4" type="video/mp4"></video>
+                    </div>
+                    <button type="button" class="btn btn-primary close" id="saltarVideoSabio" data-dismiss="modal" data-toggle="modal" data-target="#modalCompartirLogro">Saltar Video</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Modal: modalCompartirLogro-->
+    <div class="modal fade" id="modalCompartirLogro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <!--Content-->
+            <div class="modal-content text-center">
+
+                <!--Body-->
+                <div class="modal-body">
+                    <p class="parrafo-modal">¿Desea compartir el logro con sus amigos y ganar el premio del sabio?</p>
+                </div>
+    
+                <div class="modal-footer">
+                    <div class="row w-100">
+                        <div class="col-6">
+                            <div class="text-center">
+                                <button class="btn btn-modal" id="btnPublicar">Publicar</button>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center">
+                                <button type="button" class="btn btn-modal" data-dismiss="modal" >Ahora no</button>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!--Modal: modalCompartirLogro-->
+    
+
+    <!--Modal: modalPublicar-->
+    <div class="modal fade" id="modalPublicar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <!--Content-->
+            <div class="modal-content text-center">
+                <div class="modal-header">
+                    <div class="d-flex">
+                        <img src="assets/img/icons/profile.png" width="60" height="60" alt="">
+                        <h3 class="lead font-weight-bold ml-3 mt-3">Achraf Hakimi</h3>
+                    </div>
+                </div>
+                <!--Body-->
+                <form>
+                    <div class="modal-bodyT">
+                        <div class="form-group">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="7">He cumplido con la misión que me otorgó el sabio Murbik de la cultura Misak de encontrar la piezas escondidas por el duende y reconstruir la historia del pacífico Colombiano. 
+#MuseoLili #UAO
+                            </textarea>
+                        </div>
+                
+                    </div>
+                    <div class="row px-3">
+                        <div class="col-6 text-left mt-2">
+                            <img class="mr-3" src="assets/img/icons/camara.png" width="37" height="30" alt="">
+                            <img src="assets/img/icons/galeria.png" width="37" height="27" alt="">
+                        </div>
+                        <div class="col-6">
+                            <button type="button" class="btn btn-publicar" id="btnYaPublicado">Publicar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+
+
+    <!--Modal: modalDescargarImagen-->
+    <div class="modal fade" id="modalDescargarImagen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <!--Content-->
+            <div class="text-center w-100">
+                <div class="modal-content">
+                    <!--Body-->
+                    <div class="modal-bodyImagen">
+                        <img src="assets/img/images/acuarela.png" width="300" height="400" alt="">
+                    </div>
+                    <div class="row py-3 px-4">
+                        <div class="col-6">
+                            <div class="text-center">
+                                <a href="/assets/img/images/acuarela.png" type="button" download class="btn btn-modal" id="btnDescargar">Descargar
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center">
+                                <button type="button" class="btn btn-modal" id="publicarImagen">Publicar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!--Modal: modalDescargarImagen-->
+
+
+    <!--Modal: modalPublicarImagen-->
+    <div class="modal fade" id="modalPublicarImagen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <!--Content-->
+            <div class="modal-content text-center">
+                <div class="modal-header">
+                    <div class="d-flex">
+                        <img src="assets/img/icons/profile.png" width="60" height="60" alt="">
+                        <h3 class="lead font-weight-bold ml-3 mt-3">Achraf Hakimi</h3>
+                    </div>
+                </div>
+                <!--Body-->
+                <form>
+                    <div class="modal-bodyT">
+                        <div class="form-group">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">He sido recompensado por el sabio Murbik con la siguiente pieza 
+#MuseoLili #UAO
+                            </textarea>
+                        </div>
+                        <img class="pb-4" src="assets/img/images/acuarela.png" width="100" height="150" alt="">
+                    </div>
+                    <div class="row px-3">
+                        <div class="col-6 text-left mt-2">
+                            <img class="mr-3" src="assets/img/icons/camara.png" width="37" height="30" alt="">
+                            <img src="assets/img/icons/galeria.png" width="37" height="27" alt="">
+                        </div>
+                        <div class="col-6">
+                            <button type="button" class="btn btn-publicar" id="btnPublicarImagenP">Publicar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--/modalPublicarImagen-->
+        </div>
+    </div>
+
+
+    <!-- Modal Video Final -->
+    <div class="modal modal-fullscreen" id="videoModalFinal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialogV">
+            <div class="modal-contentV">
+                <div class="modal-bodyV" id="videoOnModalFinal">
+                    <div id="contenido">
+                        <video id="videoFinal"><source src="assets/vid/woman.mp4" type="video/mp4"></video>
+                    </div>
+                    <button type="button" class="btn btn-primary close" id="saltarVideoFinal" data-dismiss="modal">Saltar Video</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--Modal: modalBorrarPieza-->
+    <div class="modal fade" id="modalBorrarPieza" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <!--Content-->
+            <div class="modal-content text-center">
+                
+                <!--Body-->
+                <div class="modal-body">
+                    <h2 class="title-modal" id="nombrePiezaABorrar"></h2>
+                    <p class="parrafo-modal">¿Deseas borrarla de tu maleta de explorador virtual?</p>
+                </div>
+    
+                <!--Footer-->
+                <div class="modal-footer">
+                    <div class="row w-100">
+                        <div class="col-6">
+                            <div class="text-center">
+                                <button class="btn btn-modal" id="borrarPieza">Sí</button>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center">
+                                <button type="button" class="btn btn-modal" data-dismiss="modal">No</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!--Modal: modalBorrarPieza-->
+
+
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+        <script>
+            $(window).on("load", function () {
+                $(".loader-wrapper").fadeOut("slow");
+                
+            });
+            setTimeout(() => {
+                $(".cuadrado").fadeIn('slow');
+            }, 2000);
+        </script>
+
+    <script type="text/javascript" src="shared/Api.js"></script>
+    <script type="text/javascript" src="app/Scanner/scanner.js"></script>
+    <script type="text/javascript" src="app/Scanner/maleta.js"></script>
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,312 @@
+#preview {
+    
+    /* right: 0; */
+    /* bottom: 0; */
+    position: relative;
+    width: 100%;
+    height: auto !important;
+    z-index: -1 !important;
+}
+
+#videoQR {
+    position: relative;
+    width: 100%;
+    height: auto !important;
+    
+}
+
+#cerrarVideo {
+  position: absolute;
+  bottom: 90%;
+  left: 86%;
+  
+}
+
+#modalActivate {
+  position: relative;
+  top: 140px;
+  
+}
+
+@media screen and (min-width:768px) {
+    #preview {
+      width:40%; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+  }
+
+@media screen and (min-width:768px) {
+    #videoQR {
+      width:40%; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+  }
+
+.nav-link {
+
+  display:inline-block;
+}
+
+video {
+	height: 100vh;
+	width: 100%;
+}
+.modal-bodyV {
+	padding: 0;
+	margin: 0;
+}
+.close {
+    color: white;
+    position: absolute;
+    /* background: blue !important; */
+    border: 0;
+    top: 0;
+    z-index: 99999;
+    right: 3%;
+    float: none;
+    opacity: 1;
+    font-size: 40px;
+    font-weight: 400;
+}
+.modal-transparent {
+	background: transparent;
+}
+.modal-contentV {
+
+    background: transparent;
+}
+
+.modal-backdrop-fullscreen {
+
+    background: #ffffff;
+}
+.in {
+    opacity: .97;
+    filter: alpha(opacity=97);
+}
+.modal-backdrop-transparent {
+    background: #ffffff;
+    
+}
+.in {
+    opacity: .9;
+    filter: alpha(opacity=90);
+}
+.modal-fullscreen {
+	background: transparent;
+	
+}
+.modal-contentV {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+.modal-dialogV {
+    margin: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+@media(min-width: 768px) {
+	.modal-fullscreen .modal-dialogV {
+		width: 750px;
+	}
+}
+@media(min-width: 992px) {
+	.modal-fullscreen .modal-dialogV {
+		width: 970px;
+	}
+}
+@media(min-width: 1200px) {
+	.modal-fullscreen .modal-dialogV {
+		width: 100%;
+	}
+}
+html {
+	width: 100%;
+	height: 100%;
+	display: table;
+}
+#saltar {
+
+    position: fixed;
+    top: 29rem;
+    right: 0px;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    /* background-image: linear-gradient(
+      90deg,
+      rgb(0, 0, 0) 0%,
+      rgb(46, 46, 46) 62%,
+      rgb(138, 138, 138) 100%
+    ); */
+    
+    color: white !important;
+    border-radius: 0px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    padding-top: 0.7em !important;
+    padding-bottom: 0.7em !important;
+    padding-left: 2em !important;
+    padding-right: 2em !important;
+}
+#saltarVideoSabio {
+
+  position: fixed;
+  top: 29rem;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  /* background-image: linear-gradient(
+    90deg,
+    rgb(0, 0, 0) 0%,
+    rgb(46, 46, 46) 62%,
+    rgb(138, 138, 138) 100%
+  ); */
+  
+  color: white !important;
+  border-radius: 0px !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 500 !important;
+  padding-top: 0.7em !important;
+  padding-bottom: 0.7em !important;
+  padding-left: 2em !important;
+  padding-right: 2em !important;
+}
+#saltarVideoFinal {
+
+  position: fixed;
+  top: 29rem;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  /* background-image: linear-gradient(
+    90deg,
+    rgb(0, 0, 0) 0%,
+    rgb(46, 46, 46) 62%,
+    rgb(138, 138, 138) 100%
+  ); */
+  
+  color: white !important;
+  border-radius: 0px !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 500 !important;
+  padding-top: 0.7em !important;
+  padding-bottom: 0.7em !important;
+  padding-left: 2em !important;
+  padding-right: 2em !important;
+}
+.contenido {
+
+  position: fixed !important;
+  background-color: rgba(1, 9, 45, 0.7);
+  padding-bottom: 0em !important;
+  margin: 0;
+  z-index: 99999 !important;
+  width: 100%;
+  height: calc(100vh - 87vh);
+  opacity: 100%;
+  box-shadow: 0 0px 10px -1px rgba(0, 0, 0, 0.8) !important;
+  animation-duration: 3s;
+  animation-name: slideinTop;
+}
+@keyframes slideinTop {
+  from {
+    height: calc(0vh) ;
+  }
+
+  to {
+    height: calc(100vh - 87vh);
+  }
+}
+.icons-maleta {
+
+  cursor: pointer;
+  animation-duration: 1s;
+  animation-name: slideinQ;
+  
+}
+@keyframes slideinQ {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 60px;
+  }
+}
+
+
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  position: relative;
+  border: 4px solid #01092c;
+  animation: loader 2s infinite ease;
+}
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background: linear-gradient(90deg, rgb(153, 37, 37) 0%, rgb(187, 0, 0) 26%, rgb(188, 44, 44) 61%, rgb(188, 44, 44) 100%);
+  animation: loader-inner 2s infinite ease-in;
+}
+@keyframes loader {
+  0% { transform: rotate(0deg);}
+  25% { transform: rotate(180deg);}
+  50% { transform: rotate(180deg);}
+  75% { transform: rotate(360deg);}
+  100% { transform: rotate(360deg);}
+}
+@keyframes loader-inner {
+  0% { height: 0%;}
+  25% { height: 0%;}
+  50% { height: 100%;}
+  75% { height: 100%;}
+  100% { height: 0%;}
+}
+.text-loader {
+  font-family: 'Poppins', sans-serif !important;
+  font-style: normal;
+  font-size: 1.3em;
+  font-weight: 500;
+  color: #172b4d;
+
+  top: 0;
+  left: 0;
+  margin-top: 0.6em;
+  padding: 1.5em;
+}
+
+/* .cuadrado {
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  position:relative;
+  border: 3px solid #555;
+  z-index: 100;
+} */
+.cuadrado{
+
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  top:0;
+  background:rgba(37, 37, 37, 0.2) ;
+  
+  -webkit-clip-path: polygon(0% 0%, 0% 100%, 11% 100%, 11% 26%, 87% 26%, 88% 74%, 11% 74%, 11% 100%, 100% 100%, 100% 0%);
+  clip-path: polygon(0% 0%, 0% 100%, 11% 100%, 11% 26%, 87% 26%, 88% 74%, 11% 74%, 11% 100%, 100% 100%, 100% 0%);
+  
+  z-index: 10000;
+}
