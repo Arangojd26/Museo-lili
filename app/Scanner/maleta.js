@@ -210,6 +210,8 @@ document.getElementById("btnYaPublicado").onclick = () => {
 
     modalPublicar('#modalPublicar', '#modalDescargarImagen')
     console.log('btnYaPublicado')
+
+    
 }
 
 document.getElementById("publicarImagen").onclick = () => {

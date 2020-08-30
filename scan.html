@@ -200,10 +200,10 @@
                     </div>
                 </div>
                 <!--Body-->
-                <form>
+                <form name="formularioTwitter"> 
                     <div class="modal-bodyT">
                         <div class="form-group">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="7">He cumplido con la misión que me otorgó el sabio Murbik de la cultura Misak de encontrar la piezas escondidas por el duende y reconstruir la historia del pacífico Colombiano. 
+                            <textarea type="text" name="mensaje" class="form-control" id="exampleFormControlTextarea1" rows="7">He cumplido con la misión que me otorgó el sabio Murbik de la cultura Misak de encontrar la piezas escondidas por el duende y reconstruir la historia del pacífico Colombiano. 
 #MuseoLili #UAO
                             </textarea>
                         </div>
@@ -215,7 +215,7 @@
                             <img src="assets/img/icons/galeria.png" width="37" height="27" alt="">
                         </div>
                         <div class="col-6">
-                            <button type="button" class="btn btn-publicar" id="btnYaPublicado">Publicar</button>
+                            <button type="submit" class="btn btn-publicar" id="btnYaPublicado">Publicar</button>
                         </div>
                     </div>
                 </form>
@@ -258,7 +258,7 @@
 
 
     <!--Modal: modalPublicarImagen-->
-    <div class="modal fade" id="modalPublicarImagen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal-backdrop show fade" id="modalPublicarImagen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <!--Content-->
@@ -270,10 +270,10 @@
                     </div>
                 </div>
                 <!--Body-->
-                <form>
+                <form name="formularioImagenTwitter">
                     <div class="modal-bodyT">
                         <div class="form-group">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">He sido recompensado por el sabio Murbik con la siguiente pieza 
+                            <textarea class="form-control" name="mensajeImagen" id="exampleFormControlTextarea1" rows="3">He sido recompensado por el sabio Murbik con la siguiente pieza 
 #MuseoLili #UAO
                             </textarea>
                         </div>
@@ -285,7 +285,7 @@
                             <img src="assets/img/icons/galeria.png" width="37" height="27" alt="">
                         </div>
                         <div class="col-6">
-                            <button type="button" class="btn btn-publicar" id="btnPublicarImagenP">Publicar</button>
+                            <button type="submit" class="btn btn-publicar" id="btnPublicarImagenP">Publicar</button>
                         </div>
                     </div>
                 </form>
@@ -372,6 +372,7 @@
     <script type="text/javascript" src="shared/Api.js"></script>
     <script type="text/javascript" src="app/Scanner/scanner.js"></script>
     <script type="text/javascript" src="app/Scanner/maleta.js"></script>
+    <script type="text/javascript" src="app/Publicaciones/publicarTwitter.js"></script>
     
     
 </body>
