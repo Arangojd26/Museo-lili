@@ -14,7 +14,7 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- Instascan -->
     <script type="text/javascript" src="/shared/instascan.min.js"></script>
-
+    <script type="text/javascript" src=" https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script> 
     <!-- Estilos CSS -->
 
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
@@ -29,11 +29,19 @@
 
     
 
-    <div class="vid-border fixed-top fixed-left">
+    <div class="vid-border fixed-top fixed-left vid1" id="vid1">
         <video id="preview"></video>
     </div>
 
-    <div class="cuadrado" style="display: none;"></div>
+    <!-- <img id="img" class="d-none" src="" alt="sss"> -->
+    <div class="vid-border fixed-top fixed-left" id="vid2">
+        <video id="webcam" class="d-none" autoplay playsinline></video>
+    </div>
+    <canvas id="canvas" class="d-none"></canvas>
+    <audio id="snapSound" src="assets/sounds/snap.mp3" preload="auto"></audio>
+    
+
+    <div id="desenfoque" class="cuadrado" style="display: none;"></div>
 
     <div class="loader-wrapper">
         <span class="loader"><span class="loader-inner"></span></span>
@@ -136,6 +144,9 @@
     
     <div class="contenido fixed-bottom text-center pt-1" id="maletaVirtual">
         <!-- <button id="maleta">Hola</button> -->  
+    </div>
+    <div class="camaraSelfie text-center">
+        <img id="download-photo" class="cam" src="assets/img/icons/camera.png" width="60px" alt="" style="cursor: pointer;">
     </div>
 
     <!-- Modal Video Sabio Agradecido -->
@@ -277,11 +288,12 @@
 #MuseoLili #UAO
                             </textarea>
                         </div>
-                        <img class="pb-4" src="assets/img/images/acuarela.png" width="100" height="150" alt="">
+                        <img id="img" class="pb-4" src="assets/img/images/acuarela.png" width="120" height="220" alt="">
+                        <!-- <a href="#" id="download-photo" download="selfie.png" target="_blank" title="Save Photo">Descargar</a>  -->
                     </div>
                     <div class="row px-3">
                         <div class="col-6 text-left mt-2">
-                            <img class="mr-3" src="assets/img/icons/camara.png" width="37" height="30" alt="">
+                            <img id="camara" class="mr-3" src="assets/img/icons/camara.png" width="37" height="30" alt="" style="cursor: pointer;">
                             <img src="assets/img/icons/galeria.png" width="37" height="27" alt="">
                         </div>
                         <div class="col-6">

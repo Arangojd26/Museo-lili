@@ -41,7 +41,6 @@
     height: auto !important;
 
 }
-
 #videoQR {
     position: relative;
     width: 100%;
@@ -53,7 +52,6 @@
   position: absolute;
   bottom: 90%;
   left: 86%;
-  
 }
 
 #modalActivate {

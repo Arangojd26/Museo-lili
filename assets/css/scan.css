@@ -7,7 +7,13 @@
     height: auto !important;
     z-index: -1 !important;
 }
+#webcam {
 
+  position: relative;
+  width: 100%;
+  height: auto !important;
+  z-index: 1000000000 !important;
+} 
 #videoQR {
     position: relative;
     width: 100%;
@@ -309,4 +315,19 @@ html {
   clip-path: polygon(0% 0%, 0% 100%, 11% 100%, 11% 26%, 87% 26%, 88% 74%, 11% 74%, 11% 100%, 100% 100%, 100% 0%);
   
   z-index: 10000;
+}
+.camaraSelfie {
+
+  position: fixed !important;
+  bottom: 0;
+  padding: 0;
+  z-index: 99999 !important;
+  width: 100%;
+  animation-duration: 3s;
+  animation-name: slideinTop;
+  height: calc(100vh - 88vh);
+}
+.cam {
+
+  margin-top: 0rem;
 }
