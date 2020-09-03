@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-
+    <meta name="viewport" content="width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="/assets/img/icons/icon.png">
 <head>
+    
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -145,7 +148,7 @@
     <div class="contenido fixed-bottom text-center pt-1" id="maletaVirtual">
         <!-- <button id="maleta">Hola</button> -->  
     </div>
-    <div class="camaraSelfie text-center">
+    <div id="container-cam" class="camaraSelfie text-center d-none">
         <img id="download-photo" class="cam" src="assets/img/icons/camera.png" width="60px" alt="" style="cursor: pointer;">
     </div>
 
@@ -269,7 +272,7 @@
 
 
     <!--Modal: modalPublicarImagen-->
-    <div class="modal-backdrop show fade" id="modalPublicarImagen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="modalPublicarImagen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <!--Content-->

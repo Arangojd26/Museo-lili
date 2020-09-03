@@ -1,0 +1,43 @@
+.container-logo {
+
+    margin-top: 10%;
+    padding-bottom: 15%;
+}
+.content-inputs {
+
+    width: 100%;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 2rem;
+}
+.form-control{
+    padding: 1.5rem;
+    border: 0.8px solid;
+    border-top: 0.5px solid;
+    margin: 0;
+    border-radius: 7px 7px 0px 0px;
+}
+.passrow{
+    border-radius: 0px 0px 7px 7px;
+    border-top: 0px solid;
+}
+
+.form-control>input{
+    border:none;
+}
+.btn-login {
+
+    background: linear-gradient(90deg, rgb(153, 37, 37) 0%, rgb(187, 0, 0) 26%, rgb(188, 44, 44) 61%, rgb(188, 44, 44) 100%);
+    color: white !important;
+    border-radius: 8px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    padding-left: 0em !important;
+    padding-right: 0em !important;
+    margin-left: 0em;
+    margin-right: 0em;
+    width: 100%;
+}

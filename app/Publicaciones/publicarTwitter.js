@@ -57,11 +57,13 @@ document.getElementById("camara").onclick = () => {
   let camaraQR = document.getElementById('vid1');
   let desenfoque = document.getElementById('desenfoque');
   let modalPublicar = document.getElementById('modalPublicarImagen')
+  let container_cam = document.getElementById('container-cam')
 
   camaraQR.classList.add('d-none')
   modalPublicar.classList.add('d-none')
   desenfoque.classList.add('d-none')
   webcamElement.classList.remove('d-none')
+  container_cam.classList.remove('d-none')
 
   webcam.start()
     .then(result => {
