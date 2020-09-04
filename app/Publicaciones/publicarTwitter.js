@@ -95,22 +95,22 @@ function getBase64Image(img) {
 const formImagen = document.forms.formularioImagenTwitter;
 
 const postFormImagen = async (body) => {
-
+  
   // console.log(lee);
-  console.log(body)
-  const bodyEnviar = JSON.stringify(body)
+  const pictureCam = getBase64Image(document.getElementById("img"))
+  let cadenaAbreviada = pictureCam.substr(22)
+  console.log(pictureCam)
   // console.log(body);
+
     return await fetch(`http://localhost:3000/twitter/postTweetsMedia`, {
 
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Content-Type': 'multipart/form-data'
+        'Accept': 'application/json',
+        'Content-Type': 'multipart/form-data',
+        'Content-Type': 'application/json'
       },
-      body: {
-        prueba1: 'pruebaaa1',
-        prueba2: 'pruebaaa2'
-      }
+      body: JSON.stringify({mensajeImagen: body.mensajeImagen, foto: cadenaAbreviada})
     });
   };
 
@@ -118,14 +118,13 @@ const handleSubmitImagen = async (e) => {
     e.preventDefault();
     const body = JSON.stringify(Object.fromEntries(new FormData(e.target)));
     let lee = JSON.parse(body)
-    let base64 = getBase64Image(document.getElementById("img"));
-    let bodyPost = {
-      mensajeImagen: lee.mensajeImagen,
-      foto: 'base64'
-    }
-    let bodyTotal = JSON.stringify(bodyPost)
+    // let base64 = getBase64Image(document.getElementById("img"));
+    // let bodyPost = {
+    //   mensajeImagen: lee.mensajeImagen,
+    //   foto: base64
+    // }
     
-    const res = await postFormImagen(bodyTotal);
+    const res = await postFormImagen(lee);
     const data = await res.json();
     
     console.log(data.json);
